@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import OtherPage from "./OtherPage";
 import Fib from "./Fib";
 
@@ -18,8 +18,10 @@ class App extends Component {
               <Link to="/otherPage">Other Page</Link>
             </header>
             <div>
-              <Route exact path="/" component={Fib} />
-              <Route path="/otherPage" component={OtherPage} />
+              <Switch>
+                <Route exact path="/" component={Fib} />
+                <Route path="/otherPage" component={OtherPage} />
+              </Switch>
             </div>
           </div>
         </Router>
