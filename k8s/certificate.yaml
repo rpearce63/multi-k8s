@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: rickpearce-me-tls
+spec:
+  secretName: rickpearce-me
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: rickpearce.me
+  dnsNames:
+    - rickpearce.me
+    - www.rickpearce.me
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - rickpearce.me
+          - www.rickpearce.me
